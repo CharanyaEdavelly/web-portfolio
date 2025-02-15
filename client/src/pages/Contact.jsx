@@ -30,7 +30,7 @@ const Contact = () => {
     e.preventDefault();
     try{
       setLoading(true)
-      await axios.post("http://localhost:5500/mail", formData)
+      await axios.post("https://web-portfolio-server-ten.vercel.app/mail", formData)
       setLoading(false)
       setIsSuccess(true)
       setTimeout(()=> {setIsSuccess(false)}, 2000)
