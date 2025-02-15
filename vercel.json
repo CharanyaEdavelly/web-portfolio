@@ -8,5 +8,11 @@
           "outputDirectory": "client/build"
         }
       }
-    ]
+    ],
+    "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/$1"
+    }
+  ]
   }
