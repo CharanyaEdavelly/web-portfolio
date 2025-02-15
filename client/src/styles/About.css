@@ -1,0 +1,46 @@
+.about {
+    max-width: 60%;
+    margin: auto;
+}
+.work-experience-header, .education-header, .certifications-header{
+    color: #1882af;
+    margin-bottom: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #269dcf;
+}
+
+.resume {
+    background-color: #228dbb;
+    padding: 8px 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #1c97cb;
+    border-radius: 4px;
+    color: rgb(236, 241, 244);
+
+}
+.resume:hover{
+    background-color: #1f81ab;
+    cursor: pointer;
+}
+.resume-link {
+    font-family: sans-serif;
+    color: rgb(236, 241, 244);
+}
+.resume-link:hover {
+    color: rgb(236, 241, 244);
+}
+
+@media(max-width: 500px){
+    .about{
+        max-width: 90%;
+    }
+}
+@media(max-width: 800px){
+    .about{
+        max-width: 80%;
+    }
+}

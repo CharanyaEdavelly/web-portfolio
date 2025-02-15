@@ -1,0 +1,31 @@
+.education-desc {
+    margin: 16px 0;
+}
+.education-details {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.school-name{
+    margin: 0;
+    font-size: 12px;
+}
+.school-location {
+    margin: 0;
+    padding-top: 2px;
+    color: rgb(113, 111, 111);
+    font-size: 12px;
+}
+.duration {
+    margin-top: 3px;
+    color: rgb(113, 111, 111);
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+}
+.score {
+    font-weight: bold;
+    margin: 0;
+    padding-top: 5px;
+    font-size: 11px;
+}

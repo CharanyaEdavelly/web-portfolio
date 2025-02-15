@@ -1,0 +1,19 @@
+.work-samples{
+    max-width: 60%;
+    margin: auto;
+}
+.work-samples-header {
+    text-align: center;
+    color: #1882af;
+}
+
+@media(max-width: 500px){
+    .work-samples{
+        max-width: 90%;
+    }
+}
+@media(max-width: 800px){
+    .work-samples{
+        max-width: 80%;
+    }
+}

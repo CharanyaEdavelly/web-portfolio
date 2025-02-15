@@ -1,0 +1,27 @@
+.work-desc {
+    margin: 18px 0;
+}
+.work-desc-item {
+    margin: 0;
+}
+.org-details {
+    padding-top: 5px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(76, 74, 74);
+}
+.location {
+    padding-top: 3px;
+    color: rgb(113, 111, 111);
+    font-size: 12px;
+}
+.time-period {
+    font-size: 13px;
+    font-style: italic;
+}
+.work-details {
+    font-size: 13px;
+    padding-top: 6px;
+    line-height: 19px;
+}
