@@ -1,9 +1,10 @@
-import React from 'react'
+import { motion } from 'framer-motion'
 import NavBar from '../components/NavBar'
+import PageWrapper from '../components/PageWrapper'
+import AnimatedSection from '../components/AnimatedSection'
 import ProjectItem from '../components/ProjectItem'
 import '../styles/Work.css'
 
-// Importing Images
 import h_one from '../assets/images/HardwareHub/h_one.jpg'
 import h_two from '../assets/images/HardwareHub/h_two.jpg'
 import h_three from '../assets/images/HardwareHub/h_three.jpg'
@@ -35,46 +36,75 @@ import quiz from '../assets/images/projectimages/quiz.png'
 import calculator from '../assets/images/projectimages/calculator.png'
 import news from '../assets/images/projectimages/news.png'
 
+const cardVariant = {
+  hidden: { opacity: 0, y: 36 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.25, 0.46, 0.45, 0.94],
+      delay: i * 0.1,
+    },
+  }),
+}
 
 const Work = () => {
   const projects = [
     {
       images: [h_one, h_two, h_three, h_four],
-      title: "Hardware Hub",
-      description: 'Hardware Hub is an e-commerce web application that lets users to customise PC components according to their needs. Users can also purchase in-built PC and individual hardware components. The project has an intuitive and response UI. It involves integrating APIs, authenticating users, authorising, mailer functionality and others. It is built using MERN Stack.',
-      skills: ['MongoDB', 'Express.js', 'React', 'Node', 'Custom CSS']
+      title: 'Hardware Hub',
+      description:
+        'Hardware Hub is an e-commerce web application that lets users customise PC components according to their needs. Users can purchase in-built PCs and individual hardware components. It involves integrating APIs, authenticating users, authorising, mailer functionality, and more. Built using the MERN Stack.',
+      skills: ['MongoDB', 'Express.js', 'React', 'Node', 'Custom CSS'],
     },
     {
       images: [well_1, well_2, well_3, well_4, well_5, well_6, well_7, well_8],
-      title: "Employee Wellness",
-      description: 'As a capstone project, worked on creating a wellness project for employees. In this project, we provide access to employees to register for the wellness events, challenges and benefits, ensuring a work happy place. Employees can find the program details (start date, end date, oraganiser, etc.) and can register if interested. We also created an admin profile for creating, updating and deleting the programs.',
-      skills: ['React', 'Spring Boot', 'MySQL', 'Tailwind CSS']
+      title: 'Employee Wellness',
+      description:
+        'A capstone project — a wellness platform for employees to register for events, challenges, and benefits. Employees can view program details and register if interested. Includes an admin profile for creating, updating, and deleting programs.',
+      skills: ['React', 'Spring Boot', 'MySQL', 'Tailwind CSS'],
     },
     {
       images: [expense_1, expense_2, expense_3, expense_4, expense_5, expense_6, expense_7, expense_8],
-      title: "Expense Management",
-      description: 'Expense Management provides a solution for employees to submit and track their expense requests. Employees can log their expenses, upload necessary receipts, and request reimbursements.Managers have access to a expense dashboard where they can review, verify, and approve or reject expense submissions. A dynamic pie chart is integrated into the dashboard, to view the number of expenses approved, rejected and are pending.',
-      skills: ['React', 'Node', 'Express.js', 'MySQL', 'Tailwind CSS']
+      title: 'Expense Management',
+      description:
+        'A solution for employees to submit and track expense requests — log expenses, upload receipts, and request reimbursements. Managers can review, approve, or reject submissions via a dashboard with a dynamic pie chart.',
+      skills: ['React', 'Node', 'Express.js', 'MySQL', 'Tailwind CSS'],
     },
     {
       images: [feedback, rockpaperscissor, tictactoe, weather, quiz, calculator, news],
-      title: "My Lil Projects :)",
-      description: 'As part of learning React, Javascript, CSS and HTML, I worked on building feedback page that allows user to write a feedback to product/ service using react. I have developed games like Rock Paper Scissors, Tic Tac Toe, a weather application, a quiz project and a calculator using JavaScript. Also created a static news website using custom CSS.',
-      skills: ['React', 'Javascript', 'Bootstrap','CSS', 'HTML']
-
-    }
+      title: 'My Lil Projects :)',
+      description:
+        'A collection of projects built while learning React, JavaScript, CSS, and HTML — including a feedback form, Rock Paper Scissors, Tic Tac Toe, a weather app, a quiz, a calculator, and a static news website.',
+      skills: ['React', 'Javascript', 'Bootstrap', 'CSS', 'HTML'],
+    },
   ]
-  return (
-    <div className="work">
-      <NavBar/>
-      
-      <div className='work-samples'>
-      <h4 className='work-samples-header'>WORK SAMPLES</h4>
 
-      {projects.map((project) => <ProjectItem key={project.projectTitle} project={project}/>)}
-    
+  return (
+    <PageWrapper>
+      <div className="work">
+        <NavBar />
+        <div className="work-samples">
+          <AnimatedSection>
+            <h4 className="work-samples-header">WORK SAMPLES</h4>
+          </AnimatedSection>
+
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.title}
+              custom={i}
+              variants={cardVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+            >
+              <ProjectItem project={project} />
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
 

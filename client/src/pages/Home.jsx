@@ -1,32 +1,183 @@
-import NavBar from "../components/NavBar"
+import { motion } from 'framer-motion'
+import NavBar from '../components/NavBar'
+import PageWrapper from '../components/PageWrapper'
 import display_picture from '../assets/images/display_picture.jpg'
-import "../styles/Home.css"
-import { FaLinkedin } from "react-icons/fa"
-import { FaGithub } from "react-icons/fa6"
+import Resume from '../assets/docs/Resume.pdf'
+import '../styles/Home.css'
+import { FaLinkedin } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa6'
+import useTypewriter from '../hooks/useTypewriter'
+
+const roles = ['Software Developer', 'MERN Stack Developer', 'Frontend Engineer']
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.14 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+}
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.88 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+}
+
+const stats = [
+  { value: '3+', label: 'Years Experience' },
+  { value: '7+', label: 'Projects Built' },
+  { value: '15+', label: 'Technologies' },
+  { value: '100%', label: 'Commitment' },
+]
+
+const services = [
+  {
+    icon: '⬡',
+    title: 'Frontend Development',
+    desc: 'Building responsive, accessible UIs with React and Angular. Pixel-perfect from design to production.',
+    tags: ['React', 'Angular', 'TailwindCSS', 'Bootstrap'],
+  },
+  {
+    icon: '⬡',
+    title: 'Backend Development',
+    desc: 'Designing robust server-side systems and RESTful APIs with Node.js and ASP.NET Core.',
+    tags: ['Node.js', 'Express', 'ASP.NET Core', 'REST APIs'],
+  },
+  {
+    icon: '⬡',
+    title: 'Full Stack Solutions',
+    desc: 'End-to-end web applications using the MERN stack — from database schema to cloud deployment.',
+    tags: ['MERN Stack', 'MySQL', 'MongoDB', 'Azure'],
+  },
+]
+
+const techStack = [
+  'React', 'Angular', 'Node.js', 'Express', 'ASP.NET Core',
+  'JavaScript', 'TypeScript', 'C#', 'MongoDB', 'MySQL',
+  'TailwindCSS', 'Git', 'Azure', 'Vercel',
+]
 
 const Home = () => {
+  const role = useTypewriter(roles)
+
   return (
-    <div>
-        <NavBar />
+    <PageWrapper>
+      <NavBar />
 
-        <div className="center">
-            <img className="display-picture" src={display_picture} alt="Not Found"/>
-        </div>
+      {/* ── Hero ── */}
+      <div className="hero-section">
+        <div className="blob blob-1" />
+        <div className="blob blob-2" />
 
-        <h1 className="name-header">Hi, I'm Charanya <span className="emoji">:)</span> </h1>
-        <p className="work-header">I am a <strong>Software Developer</strong>  with 1+ Years of Experience in developing applications using  <strong>JavaScript</strong> and <strong>MERN</strong>  (MongoDB, Express.js, React, Node.js) Stack. I am committed to provide innovative solutions that solve real problems as well as grow my expertise in development. I aim to deliver exceptional web applications with great code quality. Expert in building dynamic <strong>Front-end applications</strong> and <strong>Full-stack applications</strong>.</p>
+        <motion.div className="hero-image-col" variants={imageVariants} initial="hidden" animate="visible">
+          <img className="display-picture" src={display_picture} alt="Charanya" />
+        </motion.div>
 
-        <div className="center icons"> 
+        <motion.div className="hero-text-col" variants={containerVariants} initial="hidden" animate="visible">
+          <motion.h1 className="name-header" variants={itemVariants}>
+            Hi, I'm Charanya <span className="emoji">:)</span>
+          </motion.h1>
 
-            <a href="https://www.linkedin.com/in/charanya-edavelly-a725721a2" target="_blank" rel="noreferrer">
-              <FaLinkedin className="icon" size={40} color="#1882af"/>
+          <motion.p className="role-line" variants={itemVariants}>
+            <span className="role-text">{role}</span>
+            <span className="typewriter-cursor" />
+          </motion.p>
+
+          <motion.p className="work-header" variants={itemVariants}>
+            3+ Years of Experience building applications with <strong>React, Angular </strong> and {' '}
+            <strong>MERN</strong> Stack. Focused on delivering exceptional, high-quality web
+            experiences that solve real problems.
+          </motion.p>
+
+          <motion.div className="hero-actions" variants={itemVariants}>
+            <div className="icons">
+              <a href="https://www.linkedin.com/in/charanya-edavelly-a725721a2" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <FaLinkedin className="icon" size={36} />
+              </a>
+              <a href="https://github.com/charanyaedavelly" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <FaGithub className="icon" size={36} />
+              </a>
+            </div>
+            <a href={Resume} target="_blank" rel="noopener noreferrer" className="resume-cta">
+              View Resume
             </a>
-            <a href="https://github.com/charanyaedavelly" target="_blank" rel="noreferrer">
-              <FaGithub className="icon" size={40} color="#1882af"/>
-            </a>
+          </motion.div>
+        </motion.div>
+      </div>
 
+      {/* ── Stats ── */}
+      <motion.div
+        className="stats-row"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        {stats.map((s) => (
+          <div key={s.label} className="stat-item">
+            <span className="stat-value">{s.value}</span>
+            <span className="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* ── What I do ── */}
+      <div className="home-section">
+        <motion.div
+          className="home-section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="home-section-label">What I Do</p>
+          <h2 className="home-section-title">How I can help you</h2>
+        </motion.div>
+
+        <motion.div
+          className="services-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+          {services.map((s) => (
+            <motion.div
+              key={s.title}
+              className="service-card"
+              variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } } }}
+            >
+              <span className="service-icon">{s.icon}</span>
+              <h3 className="service-title">{s.title}</h3>
+              <p className="service-desc">{s.desc}</p>
+              <div className="service-tags">
+                {s.tags.map((t) => <span key={t} className="service-tag">{t}</span>)}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* ── Tech strip ── */}
+      <motion.div
+        className="tech-strip-wrapper"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="home-section-label" style={{ textAlign: 'center', marginBottom: '20px' }}>Tech Stack</p>
+        <div className="tech-strip">
+          <div className="tech-strip-track">
+            {[...techStack, ...techStack].map((tech, i) => (
+              <span key={i} className="tech-chip">{tech}</span>
+            ))}
+          </div>
         </div>
-    </div>
+      </motion.div>
+
+    </PageWrapper>
   )
 }
 

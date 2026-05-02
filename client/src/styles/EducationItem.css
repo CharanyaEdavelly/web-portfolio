@@ -1,31 +1,66 @@
 .education-desc {
-    margin: 16px 0;
+  margin: 12px 0;
+  padding: 16px 20px;
+  background: #111116;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+.education-desc:hover {
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.07);
+}
+
 .education-details {
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f1f1f3;
 }
-.school-name{
-    margin: 0;
-    font-size: 12px;
+
+.school-name {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #9898a8;
 }
+
 .school-location {
-    margin: 0;
-    padding-top: 2px;
-    color: rgb(113, 111, 111);
-    font-size: 12px;
+  margin: 2px 0 0;
+  color: #5c5c6e;
+  font-size: 12px;
 }
+
 .duration {
-    margin-top: 3px;
-    color: rgb(113, 111, 111);
-    font-size: 13px;
-    font-style: italic;
-    font-weight: normal;
+  flex-shrink: 0;
+  color: #5c5c6e;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 2px;
 }
+
 .score {
-    font-weight: bold;
-    margin: 0;
-    padding-top: 5px;
-    font-size: 11px;
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 2px 10px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+@media(max-width: 600px) {
+  .education-details {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .duration { align-self: flex-start; }
+  .education-desc { padding: 14px 16px; }
 }

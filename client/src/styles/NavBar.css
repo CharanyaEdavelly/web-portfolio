@@ -1,32 +1,78 @@
 .nav-bar {
-    display: flex;
-    max-width: 60%;
-    margin: auto;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding: 10px 15px;
-    border: 1px solid black;
-    border-radius: 7px;
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  animation: nav-appear 0.5s ease both;
+  display: flex;
+  max-width: 680px;
+  margin: 20px auto 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(17, 17, 22, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9999px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+.name a {
+  font-weight: 700;
+  font-size: 15px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.3px;
+  text-decoration: none;
 }
 
 a {
-    color: rgb(34, 34, 34);
-    text-decoration: none;
-    font-weight: 450;
+  color: var(--text-primary, #f1f1f3);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 .nav-link {
-    padding-left: 20px;
+  padding-left: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #9898a8;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@media(max-width: 500px){
-    .nav-bar {
-        max-width: 90%;
-    }
-}
-@media(max-width: 800px){
-    .nav-bar {
-        max-width: 80%;
-    }
+.nav-link:hover {
+  color: #38bdf8;
 }
 
+@keyframes nav-appear {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 800px) {
+  .nav-bar { max-width: calc(100% - 48px); }
+}
+
+@media(max-width: 600px) {
+  .nav-bar {
+    max-width: calc(100% - 32px);
+    padding: 10px 18px;
+    top: 10px;
+  }
+  .name a { font-size: 13px; }
+  .nav-link { padding-left: 16px; font-size: 12px; }
+}
+
+@media(max-width: 400px) {
+  .nav-bar { padding: 9px 14px; }
+  .name a { font-size: 12px; }
+  .nav-link { padding-left: 12px; font-size: 11px; }
+}
