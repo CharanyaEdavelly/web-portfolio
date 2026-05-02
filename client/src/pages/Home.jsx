@@ -27,7 +27,7 @@ const imageVariants = {
 
 const stats = [
   { value: '3+', label: 'Years Experience' },
-  { value: '7+', label: 'Projects Built' },
+  { value: '10+', label: 'Projects Built' },
   { value: '15+', label: 'Technologies' },
   { value: '100%', label: 'Commitment' },
 ]
