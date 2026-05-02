@@ -1,19 +1,25 @@
-.work-samples{
-    max-width: 60%;
-    margin: auto;
-}
-.work-samples-header {
-    text-align: center;
-    color: #1882af;
+.work { padding-bottom: 72px; }
+
+.work-samples {
+  max-width: 700px;
+  margin: 40px auto 0;
+  padding: 0 24px;
 }
 
-@media(max-width: 500px){
-    .work-samples{
-        max-width: 90%;
-    }
+.work-samples-header {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 32px;
 }
-@media(max-width: 800px){
-    .work-samples{
-        max-width: 80%;
-    }
+
+@media(max-width: 500px) {
+  .work-samples { max-width: 100%; padding: 0 16px; }
+}
+
+@media(max-width: 800px) {
+  .work-samples { max-width: 100%; padding: 0 24px; }
 }
