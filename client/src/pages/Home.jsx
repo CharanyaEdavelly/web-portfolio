@@ -32,21 +32,41 @@ const stats = [
   { value: '100%', label: 'Commitment' },
 ]
 
+const FrontendIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+  </svg>
+)
+
+const BackendIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2" />
+    <line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+  </svg>
+)
+
+const FullstackIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+  </svg>
+)
+
 const services = [
   {
-    icon: '⬡',
+    Icon: FrontendIcon,
     title: 'Frontend Development',
     desc: 'Building responsive, accessible UIs with React and Angular. Pixel-perfect from design to production.',
     tags: ['React', 'Angular', 'TailwindCSS', 'Bootstrap'],
   },
   {
-    icon: '⬡',
+    Icon: BackendIcon,
     title: 'Backend Development',
     desc: 'Designing robust server-side systems and RESTful APIs with Node.js and ASP.NET Core.',
     tags: ['Node.js', 'Express', 'ASP.NET Core', 'REST APIs'],
   },
   {
-    icon: '⬡',
+    Icon: FullstackIcon,
     title: 'Full Stack Solutions',
     desc: 'End-to-end web applications using the MERN stack — from database schema to cloud deployment.',
     tags: ['MERN Stack', 'MySQL', 'MongoDB', 'Azure'],
@@ -148,7 +168,7 @@ const Home = () => {
               className="service-card"
               variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } } }}
             >
-              <span className="service-icon">{s.icon}</span>
+              <div className="service-icon-wrapper"><s.Icon /></div>
               <h3 className="service-title">{s.title}</h3>
               <p className="service-desc">{s.desc}</p>
               <div className="service-tags">
